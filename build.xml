@@ -1,0 +1,137 @@
+<?xml version="1.0"?> 
+<project name="JavaII" default="compile" basedir=".">
+<property environment="env"/>
+<property name="Assignment1" value="assignment1" />
+<property name="Assignment2" value="assignment2" />
+<property name="Assignment3" value="assignment3" />
+<property name="Assignment4" value="assignment4" />
+<property name="Assignment5" value="assignment5" />
+<property name="Creator" value="Brent-Burbidge" />
+<property name="src" value="${basedir}/src" />
+<property name="bin" value="${basedir}/bin" />
+<property name="lib" value="${basedir}/lib" />
+<property name="doc" value="${basedir}/doc" />
+
+<property name="build" value="${basedir}/build" />
+<target name="prepare"
+description="Setting up temporary directory to support build.">
+<mkdir dir="${build}"/>
+<mkdir dir="${build}/${Assignment1}"/>
+<mkdir dir="${build}/${Assignment2}"/>
+<mkdir dir="${build}/${Assignment3}"/>
+<mkdir dir="${build}/${Assignment4}"/>
+<mkdir dir="${build}/${Assignment5}"/>
+<mkdir dir="${bin}"/>
+</target>
+<target name="compile" depends="prepare">
+<javac includeantruntime="false" srcdir="${src}/${Assignment1}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+<javac includeantruntime="false" srcdir="${src}/${Assignment2}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+<javac includeantruntime="false" srcdir="${src}/${Assignment3}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+<javac includeantruntime="false" srcdir="${src}/${Assignment4}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+<javac includeantruntime="false" srcdir="${src}/${Assignment5}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+</target>
+
+
+<target name="compileAssignment1" depends="prepare">
+<javac includeantruntime="false" srcdir="${src}/${Assignment1}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+</target>
+
+<target name="compileAssignment2" depends="prepare">
+<javac includeantruntime="false" srcdir="${src}/${Assignment2}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+</target>
+
+<target name="compileAssignment3" depends="prepare">
+<javac includeantruntime="false" srcdir="${src}/${Assignment3}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+</target>
+
+<target name="compileAssignment4" depends="prepare">
+<javac includeantruntime="false" srcdir="${src}/${Assignment4}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+</target>
+
+<target name="compileAssignment5" depends="prepare">
+<javac includeantruntime="false" srcdir="${src}/${Assignment5}" destdir="${build}" 
+includes="**/*.java" excludes="**/*Test*" listfiles="yes">
+</javac>
+</target>
+
+<target name="deploy" depends="compile">
+<jar destfile="${bin}/${Assignment1}-by-${Creator}.jar"
+basedir="${build}/${Assignment1}"/>
+<jar destfile="${bin}/${Assignment2}-by-${Creator}.jar"
+basedir="${build}/${Assignment2}"/>
+<jar destfile="${bin}/${Assignment3}-by-${Creator}.jar"
+basedir="${build}/${Assignment3}"/>
+<jar destfile="${bin}/${Assignment4}-by-${Creator}.jar"
+basedir="${build}/${Assignment4}"/>
+<jar destfile="${bin}/${Assignment5}-by-${Creator}.jar"
+basedir="${build}/${Assignment5}"/>
+</target>
+
+<target name="deployAssignment1" depends="compile">
+<jar destfile="${bin}/${Assignment1}-by-${Creator}.jar"
+basedir="${build}/${Assignment1}"/>
+</target>
+
+<target name="deployAssignment2" depends="compile">
+<jar destfile="${bin}/${Assignment2}-by-${Creator}.jar"
+basedir="${build}/${Assignment2}"/>
+</target>
+
+<target name="deployAssignment3" depends="compile">
+<jar destfile="${bin}/${Assignment3}-by-${Creator}.jar"
+basedir="${build}/${Assignment3}"/>
+</target>
+
+<target name="deployAssignment4" depends="compile">
+<jar destfile="${bin}/${Assignment4}-by-${Creator}.jar"
+basedir="${build}/${Assignment4}"/>
+</target>
+
+<target name="deployAssignment5" depends="compile">
+<jar destfile="${bin}/${Assignment5}-by-${Creator}.jar"
+basedir="${build}/${Assignment5}"/>
+</target>
+
+<target name ="cleanBuild">
+<delete includeEmptyDirs="true" verbose="true">
+<fileset dir="${basedir}">
+<include name="build/**" />
+</fileset>
+</delete>
+</target>
+
+<target name ="cleanBin">
+<delete includeEmptyDirs="true" verbose="true">
+<fileset dir="${basedir}">
+    <include name="bin" />
+    </fileset>
+</delete>
+</target>
+
+<target name ="cleanAll">
+<delete includeEmptyDirs="true" verbose="true">
+<fileset dir="${basedir}">
+    <include name="bin" />
+    <include name="build/**" />
+    </fileset>
+</delete>
+</target>
+</project>
